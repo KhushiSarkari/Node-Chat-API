@@ -2,13 +2,11 @@ const mongoose = require('mongoose');
 
 const messageSchema = new mongoose.Schema({
     from: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: 'user',
+        type: String,
         required: true
     },
     to: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: 'user',
+        type: String,
         required: true
     },
     conversationId: {
@@ -22,7 +20,7 @@ const messageSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        required: true,
+        required: false,
         enum: ['pending', 'delivered', 'sent'],
         default: 'pending',
     }
